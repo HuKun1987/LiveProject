@@ -1,0 +1,26 @@
+//
+//  PrefixHeader.pch
+//  FireCatLive
+//
+//  Created by 胡坤 on 2016/12/10.
+//  Copyright © 2016年 hukun. All rights reserved.
+
+#ifdef __OBJC__
+
+// 
+#import "PrequentlyUsedExtension.h"
+
+#import "Masonry.h"
+
+
+
+/*
+ *DeBug；调试输出格式
+ **/
+#ifdef DEBUG //调试模式
+#define FCLog(fmt, ...) NSLog((@"%s 第[Line %d]行输出:" fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define FCLog(...)
+#endif
+
+#endif
