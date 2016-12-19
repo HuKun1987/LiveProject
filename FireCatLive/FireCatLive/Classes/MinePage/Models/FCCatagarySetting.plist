@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>icon</key>
+		<string>user_love_big</string>
+		<key>name</key>
+		<string>我的订阅</string>
+		<key>ccessoryImgName</key>
+		<string></string>
+		<key>pushVcName</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>user_rec_big</string>
+		<key>name</key>
+		<string>历史记录</string>
+		<key>ccessoryImgName</key>
+		<string></string>
+		<key>pushVcName</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>User_CZ_big</string>
+		<key>name</key>
+		<string>我要充值</string>
+		<key>ccessoryImgName</key>
+		<string></string>
+		<key>pushVcName</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

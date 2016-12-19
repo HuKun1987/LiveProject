@@ -20,7 +20,7 @@
 /**
  宽度
  */
-@property(nonatomic,assign)CGFloat widht;
+@property(nonatomic,assign)CGFloat width;
 /**
  高度
  */

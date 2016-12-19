@@ -11,11 +11,12 @@
 @implementation UIView (extension)
 
 
+
 //重写set方法
 -(void)setOriginX:(CGFloat)originX
 {
     CGRect frame = self.frame;
-    frame.origin.x = originX;
+    frame.origin.x = originX ;
     self.frame = frame;
 }
 -(void)setOriginY:(CGFloat)originY
@@ -24,10 +25,10 @@
     frame.origin.y = originY;
     self.frame = frame;
 }
--(void)setWidht:(CGFloat)widht
+-(void)setWidth:(CGFloat)width
 {
     CGRect frame = self.frame;
-    frame.size.width = widht;
+    frame.size.width = width;
     self.frame = frame;
 }
 -(void)setHeight:(CGFloat)height
@@ -51,7 +52,7 @@
 {
     return self.frame.origin.y;
 }
--(CGFloat)widht
+-(CGFloat)width
 {
     return self.frame.size.width;
 }

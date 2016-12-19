@@ -7,6 +7,7 @@
 //
 
 #import "FCSettingViewCtr.h"
+
 static NSString* firstSectionCellID = @"firstSectionCellID";
 static NSString* secondSectionCellID = @"secondSectionCellID";
 @interface FCSettingViewCtr ()<UITableViewDataSource,UITableViewDelegate>

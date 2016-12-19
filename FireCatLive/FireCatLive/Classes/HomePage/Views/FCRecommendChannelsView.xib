@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Cfx-nf-iX2" customClass="FCRecommendChannelsView">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIB-On-VEt">
+                    <rect key="frame" x="0.0" y="0.0" width="349" height="44"/>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSm-cT-Iuv">
+                    <rect key="frame" x="349" y="3" width="46" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="vdV-3R-SfK"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="more_button"/>
+                    <connections>
+                        <action selector="moreChannelsToSelected:" destination="Cfx-nf-iX2" eventType="touchUpInside" id="grw-m9-dpc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="iIB-On-VEt" secondAttribute="bottom" id="IcJ-tS-Ktm"/>
+                <constraint firstItem="iIB-On-VEt" firstAttribute="top" secondItem="Cfx-nf-iX2" secondAttribute="top" id="JAh-u3-Vvr"/>
+                <constraint firstAttribute="trailing" secondItem="vSm-cT-Iuv" secondAttribute="trailing" id="LLm-SG-G4h"/>
+                <constraint firstItem="iIB-On-VEt" firstAttribute="leading" secondItem="Cfx-nf-iX2" secondAttribute="leading" id="LYa-2V-43H"/>
+                <constraint firstItem="vSm-cT-Iuv" firstAttribute="leading" secondItem="iIB-On-VEt" secondAttribute="trailing" id="UTA-7G-Y8j"/>
+                <constraint firstItem="vSm-cT-Iuv" firstAttribute="centerY" secondItem="Cfx-nf-iX2" secondAttribute="centerY" id="VjD-wM-cQZ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="channelsView" destination="iIB-On-VEt" id="Rw5-Ka-6Mo"/>
+                <outlet property="moreChannels" destination="vSm-cT-Iuv" id="jwr-sm-juO"/>
+            </connections>
+            <point key="canvasLocation" x="-42.5" y="-324"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="more_button" width="44" height="38"/>
+    </resources>
+</document>

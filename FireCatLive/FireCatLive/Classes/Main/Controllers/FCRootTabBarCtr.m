@@ -12,6 +12,7 @@
 #import "FCCatagryPageViewCtr.h"
 #import "FCMinePageViewCtr.h"
 #import "FCCoustomTabBar.h"
+#import "FCBaseNavigationController.h"
 @interface FCRootTabBarCtr ()
 
 @end
@@ -50,7 +51,7 @@
     
     vc.tabBarItem.selectedImage = [[UIImage imageNamed:[NSString stringWithFormat:@"%@_on",imgName]]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    FCBaseNavigationController * nav = [[FCBaseNavigationController alloc]initWithRootViewController:vc];
     return nav;
 }
 /*
@@ -64,5 +65,6 @@
     
     [self setValue:bar forKey:@"tabBar"];
 }
+
 
 @end

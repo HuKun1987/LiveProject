@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FCBaseViewController : UIViewController
-
+/**
+ 
+ */
+@property(nonatomic,assign)BOOL isLogin;
 @end

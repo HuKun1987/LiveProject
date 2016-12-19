@@ -12,8 +12,10 @@
 
 #import "Masonry.h"
 
+#import "NetWorkTool.h"
 
 
+//#define sizeScale ([UIScreen mainScreen].scale - 2)>0 ? 3/2: 1
 /*
  *DeBug；调试输出格式
  **/
