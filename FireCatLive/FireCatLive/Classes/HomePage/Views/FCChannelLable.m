@@ -7,7 +7,7 @@
 //
 
 #import "FCChannelLable.h"
-
+#import "FCRecommendChannelInfo.h"
 @implementation FCChannelLable
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -15,24 +15,49 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        //self.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+     
+        self.textAlignment = NSTextAlignmentCenter;
+        self.userInteractionEnabled = YES;
+        self.scale = 0;
+        self.font = [UIFont systemFontOfSize:20];
         
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapLableChannel:)];
+        
+        [self addGestureRecognizer:tap];
     }
     return self;
 }
-
--(void)setIsSelected:(BOOL)isSelected
+/*
+ *手势的响应事件
+ **/
+-(void)tapLableChannel:(UITapGestureRecognizer*)tapGesture
 {
-    if (isSelected)
-    {
-        self.textColor = [UIColor redColor];
-        self.font = [UIFont systemFontOfSize:20];
-    }
-    else
-    {
-     self.font = [UIFont systemFontOfSize:18];
-        self.textColor = [UIColor blackColor];
-    }
+    self.tapLableCallBack(tapGesture);
+}
 
+
+-(void)setChannel:(FCRecommendChannelInfo *)channel
+{
+    _channel = channel;
+    
+    self.text = channel.cname;
+    
+    [self sizeToFit];
+}
+
+- (void)setScale:(float)scale{
+    _scale = scale;
+    
+    //改变颜色
+    //白色是最不纯洁的颜色
+    self.textColor = [UIColor colorWithRed:scale green:0 blue:0 alpha:1.0];
+    
+    //字体
+    //限定范围在 0.8 - 1.0 之间
+    CGFloat minScale = 0.8;
+    
+    //最终显示的缩放比率
+    CGFloat lastScale = minScale + (1 - minScale)*scale;
+    self.transform = CGAffineTransformMakeScale(lastScale, lastScale);
 }
 @end

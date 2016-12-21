@@ -19,8 +19,6 @@
         [dataModel setValuesForKeysWithDictionary:dic];
         [temp addObject:dataModel];
     }];
-    
-    
     return temp.copy;
 }
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{}

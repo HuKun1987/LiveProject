@@ -27,5 +27,5 @@
  */
 @property(nonatomic,strong)NSArray<FCChannelDataModel*>* data;
 
-+(void)channelModelWithContentOfUrlString:(NSString*)urlString callBackHandler:(void(^)(NSArray<FCChannelModel*>*  callbackData))finishedBack;
++(NSArray<FCChannelModel*>*)channelModelWithContentDataArr:(NSArray*)dataArr;
 @end

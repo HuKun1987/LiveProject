@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FCDetailChannelCtr : UICollectionViewController
-
+/**
+ 
+ */
+@property(copy,nonatomic)NSString* gid;
 @end

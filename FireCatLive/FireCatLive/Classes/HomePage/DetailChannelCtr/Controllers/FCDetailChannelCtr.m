@@ -7,75 +7,66 @@
 //
 
 #import "FCDetailChannelCtr.h"
-
+#import "FCDetailChannelFlowLayOut.h"
+#import "FCChannelCell.h"
 @interface FCDetailChannelCtr ()
+/**
+ 
+ */
+@property(nonatomic,strong)NSArray* channelDetailList;
 
 @end
-
+static NSString* const channelsCellID = @"channelsCellID";
 @implementation FCDetailChannelCtr
 
 static NSString * const reuseIdentifier = @"Cell";
 
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-
+- (instancetype)init
+{
+    FCDetailChannelFlowLayOut* layOut = [[FCDetailChannelFlowLayOut alloc]init];
+    
+    if (self = [super initWithCollectionViewLayout:layOut])
+    {
+        self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        self.channelDetailList = [NSArray array];
+    }
+    return self;
 }
 
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FCChannelCell" bundle:nil]  forCellWithReuseIdentifier:channelsCellID];
+}
 
 #pragma mark <UICollectionViewDataSource>
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+
+    return self.channelDetailList.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    FCChannelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:channelsCellID forIndexPath:indexPath];
+
+    cell.channelData = self.channelDetailList[indexPath.item];
     
     return cell;
 }
-
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
+#pragma mark -- 获取gid去请求数据
+-(void)setGid:(NSString *)gid
+{
+    _gid = gid;
+    __weak typeof(self)weakSelf = self;
+    
+    [FCNetWorkDataFactory detailDataWithGid:gid CallBack:^(NSArray<FCChannelDataModel *> * channelDetailList)
+    {
+        weakSelf.channelDetailList = channelDetailList;
+        
+        
+        [weakSelf.collectionView reloadData];
+    }];
 }
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
-
 @end

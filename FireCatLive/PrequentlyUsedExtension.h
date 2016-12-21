@@ -6,3 +6,4 @@
 //  Copyright © 2016年 hukun. All rights reserved.
 #import "UIView+extension.h"
 #import "UILabel+extension.h"
+#import "NSString+Hash.h"

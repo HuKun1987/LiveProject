@@ -10,43 +10,25 @@
 #import "FCChannelDataModel.h"
 
 @implementation FCChannelModel
-
-+(void)channelModelWithContentOfUrlString:(NSString *)urlString callBackHandler:(void (^)(NSArray<FCChannelModel *> *))finishedBack
++(NSArray<FCChannelModel*>*)channelModelWithContentDataArr:(NSArray*)dataArr
 {
-    [[NetWorkTool sharedTool]requestDataWithType:AFNRequestTypeGet UrlString:urlString Param:nil CompleteBlock:^(id result)
+    NSMutableArray* mutebleArr = [NSMutableArray arrayWithCapacity:1];
+  
+    [dataArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
      {
-         if ([result isKindOfClass:[NSDictionary class]])
+         if ([obj isKindOfClass:[NSDictionary class]])
          {
-             NSDictionary* dic = (NSDictionary*)result;
-             
-             id data = dic[@"data"];
-             
-             if ([data isKindOfClass:[NSArray class]])
-             {
-                 NSMutableArray* mutebleArr = [NSMutableArray arrayWithCapacity:1];
-                 NSArray* dataArr = (NSArray*)data;
-                 
-                 [dataArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
-                 {
-                     if ([obj isKindOfClass:[NSDictionary class]])
-                     {
-                         NSDictionary* dict = (NSDictionary*)obj;
-                         
-                         FCChannelModel* channel = [[self alloc]init];
-                         [channel setValuesForKeysWithDictionary:dict];
-                         [mutebleArr addObject:channel];
-                     }
-                 }];
-                 finishedBack(mutebleArr.copy);
-             }
-         }else
-         {
-             FCLog(@"result不是一个字典类型");
+             NSDictionary* dict = (NSDictionary*)obj;
+             FCChannelModel* channel = [[self alloc]init];
+             [channel setValuesForKeysWithDictionary:dict];
+             [mutebleArr addObject:channel];
          }
      }];
+    return  mutebleArr;
 }
 
--(void)setValue:(id)value forUndefinedKey:(NSString *)key
+//拦截key将对应的value转变成模型数据；
+-(void)setValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqualToString:@"data"])
     {
@@ -54,6 +36,14 @@
         {
             self.data = [FCChannelDataModel channelDataWithContentOfArr:value];
         }
+    }else{
+    
+        [super setValue:value forKey:key];
     }
+}
+
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+
 }
 @end

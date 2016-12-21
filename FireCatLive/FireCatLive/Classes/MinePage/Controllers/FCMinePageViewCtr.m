@@ -13,6 +13,7 @@
 #import "FCUserInfoView.h"
 #import "FCCatagarySettingCell.h"
 #import "FCLoginViewCtr.h"
+#import "FCMineUserDetailCtr.h"
 static NSString* firstSectionCellID = @"firstSectionCellID";
 static NSString* secondSectionCellID = @"secondSectionCellID";
 
@@ -179,6 +180,13 @@ static NSString* secondSectionCellID = @"secondSectionCellID";
                     FCLoginViewCtr* loginCtr = [[FCLoginViewCtr alloc]init];
     
                     [weakSelf.navigationController pushViewController:loginCtr animated:YES];
+                }
+                else
+                {
+                    FCMineUserDetailCtr* userDetail = [[FCMineUserDetailCtr alloc]init];
+                    
+                     [weakSelf.navigationController pushViewController:userDetail animated:YES];
+                
                 }
 
             };

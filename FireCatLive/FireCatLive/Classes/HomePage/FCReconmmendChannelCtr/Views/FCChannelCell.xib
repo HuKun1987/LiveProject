@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="channelsCellID" id="Y2P-6I-0z6" customClass="FCChannelCell">
+            <rect key="frame" x="0.0" y="0.0" width="159" height="112"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="159" height="112"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w6G-cp-X4Z">
+                        <rect key="frame" x="0.0" y="0.0" width="159" height="88"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[阿昭]纪录片三连" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWc-n8-TSq">
+                        <rect key="frame" x="10" y="88" width="140.5" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="4UI-Ag-XbU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿昭才不是毒奶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vd2-7L-YKj">
+                        <rect key="frame" x="5" y="68" width="86" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpM-df-spT">
+                        <rect key="frame" x="104" y="68" width="50" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="1.57万" image="button_num"/>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RWc-n8-TSq" firstAttribute="centerX" secondItem="Y2P-6I-0z6" secondAttribute="centerX" id="0Ij-tV-9ZJ"/>
+                <constraint firstAttribute="trailing" secondItem="RpM-df-spT" secondAttribute="trailing" constant="5" id="1a4-OG-r4O"/>
+                <constraint firstItem="vd2-7L-YKj" firstAttribute="leading" secondItem="Y2P-6I-0z6" secondAttribute="leading" constant="5" id="FFj-sy-9pB"/>
+                <constraint firstItem="RWc-n8-TSq" firstAttribute="top" secondItem="vd2-7L-YKj" secondAttribute="bottom" constant="5" id="FbZ-2q-PJ3"/>
+                <constraint firstAttribute="bottom" secondItem="RWc-n8-TSq" secondAttribute="bottom" id="Kwc-nY-3Ag"/>
+                <constraint firstItem="w6G-cp-X4Z" firstAttribute="top" secondItem="Y2P-6I-0z6" secondAttribute="top" id="LbR-lq-7E9"/>
+                <constraint firstItem="RWc-n8-TSq" firstAttribute="top" secondItem="RpM-df-spT" secondAttribute="bottom" constant="5" id="VVf-d1-UPN"/>
+                <constraint firstAttribute="trailing" secondItem="w6G-cp-X4Z" secondAttribute="trailing" id="g3K-Po-HJP"/>
+                <constraint firstItem="RWc-n8-TSq" firstAttribute="top" secondItem="w6G-cp-X4Z" secondAttribute="bottom" id="g5t-SU-6cD"/>
+                <constraint firstItem="RWc-n8-TSq" firstAttribute="leading" secondItem="Y2P-6I-0z6" secondAttribute="leading" constant="10" id="pOj-WC-eVk"/>
+                <constraint firstItem="w6G-cp-X4Z" firstAttribute="leading" secondItem="Y2P-6I-0z6" secondAttribute="leading" id="rbz-7Y-dzX"/>
+            </constraints>
+            <size key="customSize" width="159" height="112"/>
+            <connections>
+                <outlet property="bgImgView" destination="w6G-cp-X4Z" id="5cd-jJ-DDu"/>
+                <outlet property="channelNameLable" destination="RWc-n8-TSq" id="0KX-ml-d7h"/>
+                <outlet property="userNameLable" destination="vd2-7L-YKj" id="eHL-3f-z58"/>
+                <outlet property="vistorCountbutton" destination="RpM-df-spT" id="n3Z-8C-KXv"/>
+            </connections>
+            <point key="canvasLocation" x="-111.5" y="49"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="button_num" width="15" height="15"/>
+    </resources>
+</document>

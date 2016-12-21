@@ -7,15 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		771AB1EF1E094AA100AAC4D1 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771AB1E91E094AA100AAC4D1 /* SSKeychain.strings */; };
+		771AB1F01E094AA100AAC4D1 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 771AB1EC1E094AA100AAC4D1 /* SSKeychain.m */; };
+		771AB1F11E094AA100AAC4D1 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 771AB1EE1E094AA100AAC4D1 /* SSKeychainQuery.m */; };
+		771AB1F41E094ABA00AAC4D1 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 771AB1F31E094ABA00AAC4D1 /* NSString+Hash.m */; };
 		772837E61E06C5E600A4E0B4 /* FCRecommendHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772837E51E06C5E600A4E0B4 /* FCRecommendHeader.xib */; };
 		772837E91E06D1F100A4E0B4 /* FCLiveRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 772837E81E06D1F100A4E0B4 /* FCLiveRoomCell.m */; };
 		772837EC1E07939400A4E0B4 /* FCChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 772837EB1E07939400A4E0B4 /* FCChannelModel.m */; };
 		772837EF1E0793FD00A4E0B4 /* FCChannelDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 772837EE1E0793FD00A4E0B4 /* FCChannelDataModel.m */; };
+		772837F21E07AC8200A4E0B4 /* FCChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 772837F11E07AC8200A4E0B4 /* FCChannelCell.m */; };
+		772837F41E07ACE300A4E0B4 /* FCChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772837F31E07ACE300A4E0B4 /* FCChannelCell.xib */; };
+		772837F71E07B61200A4E0B4 /* FCBaseCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 772837F61E07B61200A4E0B4 /* FCBaseCollectionCell.m */; };
+		772837FA1E07C95B00A4E0B4 /* FCReusableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 772837F91E07C95B00A4E0B4 /* FCReusableHeaderView.m */; };
 		77501DBC1DFD389700E48E73 /* FCSettingViewCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 77501DBB1DFD389700E48E73 /* FCSettingViewCtr.m */; };
 		775350221DFC12C500B27B79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 775350211DFC12C500B27B79 /* main.m */; };
 		775350251DFC12C500B27B79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 775350241DFC12C500B27B79 /* AppDelegate.m */; };
 		7753502D1DFC12C500B27B79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7753502C1DFC12C500B27B79 /* Assets.xcassets */; };
 		775350301DFC12C500B27B79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7753502E1DFC12C500B27B79 /* LaunchScreen.storyboard */; };
+		775AA1EB1E07DEB500B6D204 /* FCRecommendChannelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AA1EA1E07DEB500B6D204 /* FCRecommendChannelInfo.m */; };
+		775AA1EE1E080C6100B6D204 /* FCCatagaryCollectionFlowLayOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AA1ED1E080C6100B6D204 /* FCCatagaryCollectionFlowLayOut.m */; };
+		775AA1F11E080F8800B6D204 /* FCCatagaryCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AA1F01E080F8800B6D204 /* FCCatagaryCollectionCell.m */; };
+		775AA1F31E080FC200B6D204 /* FCCatagaryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775AA1F21E080FC200B6D204 /* FCCatagaryCollectionCell.xib */; };
+		775AA1F61E08B57400B6D204 /* FCNetWorkDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AA1F51E08B57400B6D204 /* FCNetWorkDataFactory.m */; };
+		775AA1F91E08BC2300B6D204 /* FCHotLiveBanners.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AA1F81E08BC2300B6D204 /* FCHotLiveBanners.m */; };
+		775AA1FC1E08BEA000B6D204 /* FCRecommendCycleBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AA1FB1E08BEA000B6D204 /* FCRecommendCycleBanner.m */; };
+		775AA1FF1E08E8AF00B6D204 /* FCDetailChannelFlowLayOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AA1FE1E08E8AF00B6D204 /* FCDetailChannelFlowLayOut.m */; };
 		77696FC01DFD859D002C62BA /* FCSetingTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77696FBF1DFD859D002C62BA /* FCSetingTabCell.m */; };
 		77696FC31DFD883A002C62BA /* FCSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77696FC21DFD883A002C62BA /* FCSettingModel.m */; };
 		77696FC51DFD8A8D002C62BA /* FCSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77696FC41DFD8A8D002C62BA /* FCSetting.plist */; };
@@ -71,6 +87,10 @@
 		7793CC7D1E061C5F00A4BAE5 /* FCCatagarySettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7793CC7C1E061C5F00A4BAE5 /* FCCatagarySettingItem.m */; };
 		7793CC831E06318D00A4BAE5 /* FCCatagarySetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7793CC821E06318D00A4BAE5 /* FCCatagarySetting.plist */; };
 		7793CC861E0641B000A4BAE5 /* FCLoginViewCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 7793CC851E0641B000A4BAE5 /* FCLoginViewCtr.m */; };
+		7795EC1B1E094F39007A7384 /* UIButton+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795EC1A1E094F39007A7384 /* UIButton+extension.m */; };
+		7795EC1E1E094FDC007A7384 /* FCLoginInputBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795EC1D1E094FDC007A7384 /* FCLoginInputBtn.m */; };
+		7795EC211E09583B007A7384 /* FCRightImgBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795EC201E09583B007A7384 /* FCRightImgBtn.m */; };
+		7795EC4E1E0A6EFE007A7384 /* FCMineUserDetailCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 7795EC4D1E0A6EFE007A7384 /* FCMineUserDetailCtr.m */; };
 		77C89A011DFC1AA000A80625 /* UIView+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C89A001DFC1AA000A80625 /* UIView+extension.m */; };
 		77C89A041DFC1D0F00A80625 /* FCRootTabBarCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C89A031DFC1D0F00A80625 /* FCRootTabBarCtr.m */; };
 		77C89A071DFC1EA500A80625 /* FCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C89A061DFC1EA500A80625 /* FCBaseViewController.m */; };
@@ -81,6 +101,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		771AB1EA1E094AA100AAC4D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SSKeychain.strings; sourceTree = "<group>"; };
+		771AB1EB1E094AA100AAC4D1 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		771AB1EC1E094AA100AAC4D1 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		771AB1ED1E094AA100AAC4D1 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		771AB1EE1E094AA100AAC4D1 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
+		771AB1F21E094ABA00AAC4D1 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		771AB1F31E094ABA00AAC4D1 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		772837E51E06C5E600A4E0B4 /* FCRecommendHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCRecommendHeader.xib; sourceTree = "<group>"; };
 		772837E71E06D1F100A4E0B4 /* FCLiveRoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCLiveRoomCell.h; sourceTree = "<group>"; };
 		772837E81E06D1F100A4E0B4 /* FCLiveRoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCLiveRoomCell.m; sourceTree = "<group>"; };
@@ -88,6 +115,13 @@
 		772837EB1E07939400A4E0B4 /* FCChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCChannelModel.m; sourceTree = "<group>"; };
 		772837ED1E0793FD00A4E0B4 /* FCChannelDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCChannelDataModel.h; sourceTree = "<group>"; };
 		772837EE1E0793FD00A4E0B4 /* FCChannelDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCChannelDataModel.m; sourceTree = "<group>"; };
+		772837F01E07AC8200A4E0B4 /* FCChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCChannelCell.h; sourceTree = "<group>"; };
+		772837F11E07AC8200A4E0B4 /* FCChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCChannelCell.m; sourceTree = "<group>"; };
+		772837F31E07ACE300A4E0B4 /* FCChannelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCChannelCell.xib; sourceTree = "<group>"; };
+		772837F51E07B61200A4E0B4 /* FCBaseCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCBaseCollectionCell.h; sourceTree = "<group>"; };
+		772837F61E07B61200A4E0B4 /* FCBaseCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCBaseCollectionCell.m; sourceTree = "<group>"; };
+		772837F81E07C95B00A4E0B4 /* FCReusableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCReusableHeaderView.h; sourceTree = "<group>"; };
+		772837F91E07C95B00A4E0B4 /* FCReusableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCReusableHeaderView.m; sourceTree = "<group>"; };
 		77501DBA1DFD389700E48E73 /* FCSettingViewCtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSettingViewCtr.h; sourceTree = "<group>"; };
 		77501DBB1DFD389700E48E73 /* FCSettingViewCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSettingViewCtr.m; sourceTree = "<group>"; };
 		7753501D1DFC12C500B27B79 /* FireCatLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireCatLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +131,21 @@
 		7753502C1DFC12C500B27B79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7753502F1DFC12C500B27B79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		775350311DFC12C500B27B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		775AA1E91E07DEB500B6D204 /* FCRecommendChannelInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCRecommendChannelInfo.h; sourceTree = "<group>"; };
+		775AA1EA1E07DEB500B6D204 /* FCRecommendChannelInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCRecommendChannelInfo.m; sourceTree = "<group>"; };
+		775AA1EC1E080C6100B6D204 /* FCCatagaryCollectionFlowLayOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCatagaryCollectionFlowLayOut.h; sourceTree = "<group>"; };
+		775AA1ED1E080C6100B6D204 /* FCCatagaryCollectionFlowLayOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCatagaryCollectionFlowLayOut.m; sourceTree = "<group>"; };
+		775AA1EF1E080F8800B6D204 /* FCCatagaryCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCatagaryCollectionCell.h; sourceTree = "<group>"; };
+		775AA1F01E080F8800B6D204 /* FCCatagaryCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCatagaryCollectionCell.m; sourceTree = "<group>"; };
+		775AA1F21E080FC200B6D204 /* FCCatagaryCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCCatagaryCollectionCell.xib; sourceTree = "<group>"; };
+		775AA1F41E08B57400B6D204 /* FCNetWorkDataFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCNetWorkDataFactory.h; sourceTree = "<group>"; };
+		775AA1F51E08B57400B6D204 /* FCNetWorkDataFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCNetWorkDataFactory.m; sourceTree = "<group>"; };
+		775AA1F71E08BC2300B6D204 /* FCHotLiveBanners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCHotLiveBanners.h; sourceTree = "<group>"; };
+		775AA1F81E08BC2300B6D204 /* FCHotLiveBanners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCHotLiveBanners.m; sourceTree = "<group>"; };
+		775AA1FA1E08BEA000B6D204 /* FCRecommendCycleBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCRecommendCycleBanner.h; sourceTree = "<group>"; };
+		775AA1FB1E08BEA000B6D204 /* FCRecommendCycleBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCRecommendCycleBanner.m; sourceTree = "<group>"; };
+		775AA1FD1E08E8AF00B6D204 /* FCDetailChannelFlowLayOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCDetailChannelFlowLayOut.h; sourceTree = "<group>"; };
+		775AA1FE1E08E8AF00B6D204 /* FCDetailChannelFlowLayOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCDetailChannelFlowLayOut.m; sourceTree = "<group>"; };
 		77696FBE1DFD859D002C62BA /* FCSetingTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSetingTabCell.h; sourceTree = "<group>"; };
 		77696FBF1DFD859D002C62BA /* FCSetingTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSetingTabCell.m; sourceTree = "<group>"; };
 		77696FC11DFD883A002C62BA /* FCSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSettingModel.h; sourceTree = "<group>"; };
@@ -211,6 +260,15 @@
 		7793CC821E06318D00A4BAE5 /* FCCatagarySetting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FCCatagarySetting.plist; sourceTree = "<group>"; };
 		7793CC841E0641B000A4BAE5 /* FCLoginViewCtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCLoginViewCtr.h; sourceTree = "<group>"; };
 		7793CC851E0641B000A4BAE5 /* FCLoginViewCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCLoginViewCtr.m; sourceTree = "<group>"; };
+		7795EC191E094F39007A7384 /* UIButton+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+extension.h"; sourceTree = "<group>"; };
+		7795EC1A1E094F39007A7384 /* UIButton+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+extension.m"; sourceTree = "<group>"; };
+		7795EC1C1E094FDC007A7384 /* FCLoginInputBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCLoginInputBtn.h; sourceTree = "<group>"; };
+		7795EC1D1E094FDC007A7384 /* FCLoginInputBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCLoginInputBtn.m; sourceTree = "<group>"; };
+		7795EC1F1E09583B007A7384 /* FCRightImgBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCRightImgBtn.h; sourceTree = "<group>"; };
+		7795EC201E09583B007A7384 /* FCRightImgBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCRightImgBtn.m; sourceTree = "<group>"; };
+		7795EC221E096B33007A7384 /* FireCatLive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireCatLive.entitlements; sourceTree = "<group>"; };
+		7795EC4C1E0A6EFE007A7384 /* FCMineUserDetailCtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCMineUserDetailCtr.h; sourceTree = "<group>"; };
+		7795EC4D1E0A6EFE007A7384 /* FCMineUserDetailCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCMineUserDetailCtr.m; sourceTree = "<group>"; };
 		77C899FD1DFC170100A80625 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		77C899FE1DFC1A7B00A80625 /* PrequentlyUsedExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrequentlyUsedExtension.h; sourceTree = SOURCE_ROOT; };
 		77C899FF1DFC1AA000A80625 /* UIView+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+extension.h"; sourceTree = "<group>"; };
@@ -240,6 +298,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		771AB1E81E094AA100AAC4D1 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				771AB1E91E094AA100AAC4D1 /* SSKeychain.strings */,
+				771AB1EB1E094AA100AAC4D1 /* SSKeychain.h */,
+				771AB1EC1E094AA100AAC4D1 /* SSKeychain.m */,
+				771AB1ED1E094AA100AAC4D1 /* SSKeychainQuery.h */,
+				771AB1EE1E094AA100AAC4D1 /* SSKeychainQuery.m */,
+			);
+			path = SSKeychain;
+			sourceTree = "<group>";
+		};
 		77501DB91DFD386500E48E73 /* FCSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +338,7 @@
 		7753501F1DFC12C500B27B79 /* FireCatLive */ = {
 			isa = PBXGroup;
 			children = (
+				7795EC221E096B33007A7384 /* FireCatLive.entitlements */,
 				776A76191E069EDC00C5C7AB /* Tool */,
 				7753505C1DFC14C900B27B79 /* Lib */,
 				7753505E1DFC14E000B27B79 /* Others */,
@@ -384,6 +455,11 @@
 		775350411DFC14BB00B27B79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				775AA1EC1E080C6100B6D204 /* FCCatagaryCollectionFlowLayOut.h */,
+				775AA1ED1E080C6100B6D204 /* FCCatagaryCollectionFlowLayOut.m */,
+				775AA1EF1E080F8800B6D204 /* FCCatagaryCollectionCell.h */,
+				775AA1F01E080F8800B6D204 /* FCCatagaryCollectionCell.m */,
+				775AA1F21E080FC200B6D204 /* FCCatagaryCollectionCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -433,6 +509,8 @@
 				776A75FF1E0666E900C5C7AB /* FCChannelLable.h */,
 				776A76001E0666E900C5C7AB /* FCChannelLable.m */,
 				772837E51E06C5E600A4E0B4 /* FCRecommendHeader.xib */,
+				772837F81E07C95B00A4E0B4 /* FCReusableHeaderView.h */,
+				772837F91E07C95B00A4E0B4 /* FCReusableHeaderView.m */,
 				772837E71E06D1F100A4E0B4 /* FCLiveRoomCell.h */,
 				772837E81E06D1F100A4E0B4 /* FCLiveRoomCell.m */,
 			);
@@ -517,6 +595,10 @@
 		775350501DFC14BB00B27B79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7795EC1C1E094FDC007A7384 /* FCLoginInputBtn.h */,
+				7795EC1D1E094FDC007A7384 /* FCLoginInputBtn.m */,
+				7795EC1F1E09583B007A7384 /* FCRightImgBtn.h */,
+				7795EC201E09583B007A7384 /* FCRightImgBtn.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -581,6 +663,8 @@
 			children = (
 				7790F0261DFCED3000181E49 /* FCMinePageViewCtr.h */,
 				7790F0271DFCED3000181E49 /* FCMinePageViewCtr.m */,
+				7795EC4C1E0A6EFE007A7384 /* FCMineUserDetailCtr.h */,
+				7795EC4D1E0A6EFE007A7384 /* FCMineUserDetailCtr.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -628,6 +712,10 @@
 				77C89A001DFC1AA000A80625 /* UIView+extension.m */,
 				7793CC721E05818100A4BAE5 /* UILabel+extension.h */,
 				7793CC731E05818100A4BAE5 /* UILabel+extension.m */,
+				771AB1F21E094ABA00AAC4D1 /* NSString+Hash.h */,
+				771AB1F31E094ABA00AAC4D1 /* NSString+Hash.m */,
+				7795EC191E094F39007A7384 /* UIButton+extension.h */,
+				7795EC1A1E094F39007A7384 /* UIButton+extension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -635,6 +723,7 @@
 		7753505C1DFC14C900B27B79 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				771AB1E81E094AA100AAC4D1 /* SSKeychain */,
 				776A76051E069EC300C5C7AB /* AFNetworking */,
 				7790F2321DFD01DA00181E49 /* Masonry */,
 				7790F24D1DFD01DA00181E49 /* SDWebImage */,
@@ -676,6 +765,12 @@
 				772837EB1E07939400A4E0B4 /* FCChannelModel.m */,
 				772837ED1E0793FD00A4E0B4 /* FCChannelDataModel.h */,
 				772837EE1E0793FD00A4E0B4 /* FCChannelDataModel.m */,
+				775AA1E91E07DEB500B6D204 /* FCRecommendChannelInfo.h */,
+				775AA1EA1E07DEB500B6D204 /* FCRecommendChannelInfo.m */,
+				775AA1F71E08BC2300B6D204 /* FCHotLiveBanners.h */,
+				775AA1F81E08BC2300B6D204 /* FCHotLiveBanners.m */,
+				775AA1FA1E08BEA000B6D204 /* FCRecommendCycleBanner.h */,
+				775AA1FB1E08BEA000B6D204 /* FCRecommendCycleBanner.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -683,6 +778,11 @@
 		776A75F61E065CDC00C5C7AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				772837F01E07AC8200A4E0B4 /* FCChannelCell.h */,
+				772837F11E07AC8200A4E0B4 /* FCChannelCell.m */,
+				772837F31E07ACE300A4E0B4 /* FCChannelCell.xib */,
+				772837F51E07B61200A4E0B4 /* FCBaseCollectionCell.h */,
+				772837F61E07B61200A4E0B4 /* FCBaseCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -708,6 +808,8 @@
 		776A75F91E065CE900C5C7AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				775AA1FD1E08E8AF00B6D204 /* FCDetailChannelFlowLayOut.h */,
+				775AA1FE1E08E8AF00B6D204 /* FCDetailChannelFlowLayOut.m */,
 			);
 			name = Views;
 			path = FireCatLive/Classes/HomePage/DetailChannelCtr/Views;
@@ -738,6 +840,8 @@
 			children = (
 				776A761A1E069EDC00C5C7AB /* NetWorkTool.h */,
 				776A761B1E069EDC00C5C7AB /* NetWorkTool.m */,
+				775AA1F41E08B57400B6D204 /* FCNetWorkDataFactory.h */,
+				775AA1F51E08B57400B6D204 /* FCNetWorkDataFactory.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -887,6 +991,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = K8TMZUZB79;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -913,12 +1022,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771AB1EF1E094AA100AAC4D1 /* SSKeychain.strings in Resources */,
 				77696FC51DFD8A8D002C62BA /* FCSetting.plist in Resources */,
 				775350301DFC12C500B27B79 /* LaunchScreen.storyboard in Resources */,
 				776A75FE1E0663E500C5C7AB /* FCRecommendChannelsView.xib in Resources */,
 				7793CC831E06318D00A4BAE5 /* FCCatagarySetting.plist in Resources */,
+				772837F41E07ACE300A4E0B4 /* FCChannelCell.xib in Resources */,
 				7753502D1DFC12C500B27B79 /* Assets.xcassets in Resources */,
 				7790F2971DFD01DA00181E49 /* SVProgressHUD.bundle in Resources */,
+				775AA1F31E080FC200B6D204 /* FCCatagaryCollectionCell.xib in Resources */,
 				772837E61E06C5E600A4E0B4 /* FCRecommendHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,6 +1056,7 @@
 				7790F2881DFD01DA00181E49 /* SDWebImageCompat.m in Sources */,
 				776A76041E069DF500C5C7AB /* FCReconmmendCtr.m in Sources */,
 				776A76161E069EC300C5C7AB /* AFURLRequestSerialization.m in Sources */,
+				771AB1F41E094ABA00AAC4D1 /* NSString+Hash.m in Sources */,
 				776A76181E069EC300C5C7AB /* AFURLSessionManager.m in Sources */,
 				7790F2871DFD01DA00181E49 /* SDImageCache.m in Sources */,
 				772837EC1E07939400A4E0B4 /* FCChannelModel.m in Sources */,
@@ -953,13 +1066,19 @@
 				7790F2801DFD01DA00181E49 /* MASViewConstraint.m in Sources */,
 				7790F2931DFD01DA00181E49 /* UIImageView+WebCache.m in Sources */,
 				776A76011E0666E900C5C7AB /* FCChannelLable.m in Sources */,
+				772837F71E07B61200A4E0B4 /* FCBaseCollectionCell.m in Sources */,
 				77696FC31DFD883A002C62BA /* FCSettingModel.m in Sources */,
 				7790F28E1DFD01DA00181E49 /* UIButton+WebCache.m in Sources */,
+				7795EC1E1E094FDC007A7384 /* FCLoginInputBtn.m in Sources */,
+				775AA1F61E08B57400B6D204 /* FCNetWorkDataFactory.m in Sources */,
 				776A76131E069EC300C5C7AB /* AFHTTPSessionManager.m in Sources */,
 				77D5071C1DFCDCA70012044D /* FCCatagryPageViewCtr.m in Sources */,
+				771AB1F01E094AA100AAC4D1 /* SSKeychain.m in Sources */,
 				7790F2981DFD01DA00181E49 /* SVProgressHUD.m in Sources */,
 				772837EF1E0793FD00A4E0B4 /* FCChannelDataModel.m in Sources */,
+				775AA1FF1E08E8AF00B6D204 /* FCDetailChannelFlowLayOut.m in Sources */,
 				7790F2831DFD01DA00181E49 /* View+MASAdditions.m in Sources */,
+				7795EC1B1E094F39007A7384 /* UIButton+extension.m in Sources */,
 				7793CC7D1E061C5F00A4BAE5 /* FCCatagarySettingItem.m in Sources */,
 				7790F2821DFD01DA00181E49 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				7790F27E1DFD01DA00181E49 /* MASLayoutConstraint.m in Sources */,
@@ -968,20 +1087,29 @@
 				7790F2951DFD01DA00181E49 /* SVIndefiniteAnimatedView.m in Sources */,
 				7790F27D1DFD01DA00181E49 /* MASConstraintMaker.m in Sources */,
 				7793CC771E06147800A4BAE5 /* FCUserInfoView.m in Sources */,
+				775AA1EB1E07DEB500B6D204 /* FCRecommendChannelInfo.m in Sources */,
 				77501DBC1DFD389700E48E73 /* FCSettingViewCtr.m in Sources */,
+				775AA1FC1E08BEA000B6D204 /* FCRecommendCycleBanner.m in Sources */,
 				7790F28B1DFD01DA00181E49 /* SDWebImageDownloaderOperation.m in Sources */,
+				775AA1F11E080F8800B6D204 /* FCCatagaryCollectionCell.m in Sources */,
 				77C89A041DFC1D0F00A80625 /* FCRootTabBarCtr.m in Sources */,
 				77D507131DFCDBBE0012044D /* FCBaseNavigationController.m in Sources */,
 				7790F28D1DFD01DA00181E49 /* SDWebImagePrefetcher.m in Sources */,
 				7790F2911DFD01DA00181E49 /* UIImage+WebP.m in Sources */,
+				7795EC4E1E0A6EFE007A7384 /* FCMineUserDetailCtr.m in Sources */,
+				772837FA1E07C95B00A4E0B4 /* FCReusableHeaderView.m in Sources */,
+				771AB1F11E094AA100AAC4D1 /* SSKeychainQuery.m in Sources */,
 				776A75FC1E065D1900C5C7AB /* FCRecommendChannelsView.m in Sources */,
 				7790F28C1DFD01DA00181E49 /* SDWebImageManager.m in Sources */,
 				772837E91E06D1F100A4E0B4 /* FCLiveRoomCell.m in Sources */,
+				772837F21E07AC8200A4E0B4 /* FCChannelCell.m in Sources */,
 				7790F2861DFD01DA00181E49 /* NSData+ImageContentType.m in Sources */,
 				776A761C1E069EDC00C5C7AB /* NetWorkTool.m in Sources */,
 				77C89A071DFC1EA500A80625 /* FCBaseViewController.m in Sources */,
 				776A76141E069EC300C5C7AB /* AFNetworkReachabilityManager.m in Sources */,
 				7790F02B1DFCF0C000181E49 /* FCCoustomTabBar.m in Sources */,
+				775AA1F91E08BC2300B6D204 /* FCHotLiveBanners.m in Sources */,
+				7795EC211E09583B007A7384 /* FCRightImgBtn.m in Sources */,
 				7790F2961DFD01DA00181E49 /* SVProgressAnimatedView.m in Sources */,
 				7790F2811DFD01DA00181E49 /* NSArray+MASAdditions.m in Sources */,
 				776A76171E069EC300C5C7AB /* AFURLResponseSerialization.m in Sources */,
@@ -993,6 +1121,7 @@
 				77696FC01DFD859D002C62BA /* FCSetingTabCell.m in Sources */,
 				7790F2921DFD01DA00181E49 /* UIImageView+HighlightedWebCache.m in Sources */,
 				7790F2991DFD01DA00181E49 /* SVRadialGradientLayer.m in Sources */,
+				775AA1EE1E080C6100B6D204 /* FCCatagaryCollectionFlowLayOut.m in Sources */,
 				7790F27C1DFD01DA00181E49 /* MASConstraint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1000,6 +1129,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		771AB1E91E094AA100AAC4D1 /* SSKeychain.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				771AB1EA1E094AA100AAC4D1 /* en */,
+			);
+			name = SSKeychain.strings;
+			sourceTree = "<group>";
+		};
 		7753502E1DFC12C500B27B79 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1105,6 +1242,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FireCatLive/FireCatLive.entitlements;
 				DEVELOPMENT_TEAM = K8TMZUZB79;
 				GCC_PREFIX_HEADER = FireCatLive/Others/PrefixHeader.pch;
 				INFOPLIST_FILE = FireCatLive/Info.plist;
@@ -1119,6 +1257,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FireCatLive/FireCatLive.entitlements;
 				DEVELOPMENT_TEAM = K8TMZUZB79;
 				GCC_PREFIX_HEADER = FireCatLive/Others/PrefixHeader.pch;
 				INFOPLIST_FILE = FireCatLive/Info.plist;

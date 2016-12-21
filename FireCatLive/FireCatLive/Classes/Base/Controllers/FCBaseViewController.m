@@ -8,6 +8,8 @@
 
 #import "FCBaseViewController.h"
 
+#define FCUserAccountKey  @""
+
 @interface FCBaseViewController ()
 
 @end
@@ -19,7 +21,7 @@
     [super viewDidLoad];
     
      self.view.backgroundColor = [UIColor whiteColor];
-     self.isLogin = NO;
+     self.isLogin = YES;
     [self setUPUI];
 }
 
@@ -36,6 +38,19 @@
     
     self.navigationItem.rightBarButtonItems = @[searchItem, history];
 }
+
+/*
+ *获取本地保存的用户名和密码并请求登录
+ **/
+-(void)getLocalSaveUserAccoutAndPassWordAndRequest2Login
+{
+    NSString* userAccount =  [[NSUserDefaults standardUserDefaults]stringForKey:FCUserAccountKey];
+    
+    NSString* password = [SSKeychain passwordForService:[NSBundle mainBundle].bundleIdentifier account:userAccount];
+    
+    NSString* md5PWd = [password md5String];
+}
+
 -(void)lookAtHistorySeacrh
 {
     

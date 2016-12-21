@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class FCRecommendChannelInfo;
 @interface FCReconmmendCtr : UICollectionViewController
 
+/**
+ 
+ */
+@property(copy,nonatomic)void(^firstCallBack)(NSArray<FCRecommendChannelInfo*>*channelsIfolist);
 @end

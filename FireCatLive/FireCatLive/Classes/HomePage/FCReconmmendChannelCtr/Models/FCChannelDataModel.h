@@ -20,7 +20,7 @@
 /**
  
  */
-@property(copy,nonatomic)NSString* user_name;
+@property(copy,nonatomic)NSString* username;
 /**
  
  */
@@ -58,5 +58,10 @@
  
  */
 @property(copy,nonatomic)NSString* channels;
+
+/**
+ 
+ */
+@property(copy,nonatomic)NSString* img;
 +(NSArray<FCChannelDataModel*>*)channelDataWithContentOfArr:(NSArray*)dataArr;
 @end

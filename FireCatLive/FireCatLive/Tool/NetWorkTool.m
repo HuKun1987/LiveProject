@@ -37,7 +37,8 @@ NetWorkTool* _instance;
         finished(responseObject);
     };
 
-    void (^failure)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) = ^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    void (^failure)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) = ^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+    {
         NSLog(@"%@",error);
     };
   

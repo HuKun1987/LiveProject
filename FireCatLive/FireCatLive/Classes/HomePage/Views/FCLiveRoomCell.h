@@ -6,9 +6,9 @@
 //  Copyright © 2016年 hukun. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "FCBaseCollectionCell.h"
 
-@interface FCLiveRoomCell : UICollectionViewCell
+@interface FCLiveRoomCell : FCBaseCollectionCell
 /**
  
  */

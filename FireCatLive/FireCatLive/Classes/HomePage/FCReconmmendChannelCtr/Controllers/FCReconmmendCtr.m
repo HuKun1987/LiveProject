@@ -10,20 +10,40 @@
 #import "FCLiveRoomCell.h"
 #import "FCChannelModel.h"
 #import "FCChannelDataModel.h"
-@interface FCReconmmendCtr ()<UICollectionViewDelegateFlowLayout>
+#import "FCChannelCell.h"
+#import "FCBaseCollectionCell.h"
+#import "FCReusableHeaderView.h"
+#import "FCRecommendChannelInfo.h"
+
+#import "FCNetWorkDataFactory.h"
+
+static NSString * const reuseIdentifier = @"Cell";
+
+static NSString* const cycleScrollCellID = @"cycleScrollCellID";
+
+static NSString* const hotRecommendCellID = @"hotRecommendCellID";
+
+static NSString* const channelsCellID = @"channelsCellID";
+
+static NSString* const channelSectionHeaderID = @"channelSectionHeaderID";
+@interface FCReconmmendCtr ()<UICollectionViewDelegateFlowLayout,FCReusableHeaderViewDelegate>
 /**
  存放推荐频道的推荐频道的数组
  */
 @property(nonatomic,strong)NSArray<FCChannelModel*>* channelList;
 /**
- 
+ 存放热门推荐
  */
 @property(nonatomic,strong)NSArray<FCChannelDataModel*>* hotRecommendLiveList;
+/*
+ *存放推荐频道标签模型的数组
+ **/
+@property(nonatomic,strong)NSArray<FCRecommendChannelInfo*>* channelInfoList;
 @end
 
 @implementation FCReconmmendCtr
 
-static NSString * const reuseIdentifier = @"Cell";
+
 /*
  *存放推荐频道的数组
  **/
@@ -57,51 +77,50 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self loadData];
-    //热门直播数据
- 
-//    [[NetWorkTool sharedTool]requestDataWithType:AFNRequestTypeGet UrlString:@"http://api.huomao.com/channels/getRecmmend.json?time=1482061260&refer=ios&token=aaa0cbdaa13db67cf4395d44a5f75474" Param:nil CompleteBlock:^(id result)
-//     {
-//         NSLog(@"%@",result[@"data"]);
-//         
-//     }];
-    //轮播图数据
-    http://api.huomao.com/channels/getBanner.json?time=1482061680&refer=ios&token=e1bf6e77aaa9fc1f1ae605c11f3e3284
-
-    //
-    [self.collectionView registerClass:[FCLiveRoomCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FCRecommendHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
-   
+    [self registerCellAndHeader];
 }
 
 #pragma mark <UICollectionViewDataSource>
-
+//返回组数 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-
     return self.channelList.count + 2;
 }
-
+//返回行数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return section > 1 ? 4:1;
 }
-
+//返回cell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FCLiveRoomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+    NSString* ID = nil;
     
-    cell.textLable.text = [NSString stringWithFormat:@"第%zd组第%zd行",indexPath.section,indexPath.item];
+    if (indexPath.section > 1)
+    {
+        ID = channelsCellID;
+    }else
+    {
+        ID = reuseIdentifier;
+    }
+ 
+    FCBaseCollectionCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     
+    if (indexPath.section > 1)
+    {
+        cell.channelData = self.channelList[indexPath.section - 2].data[indexPath.item];
+    }else
+    {
+       
+        
+        cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0f green:arc4random_uniform(255)/255.0f blue:arc4random_uniform(255)/255.0f alpha:1];
+    }
     return cell;
+
 }
-
-
 #pragma mark -- UICollectionViewDelegateFlowLayout
 #define CycleScrollViewHeight 120
 #define RecommendScrollViewHeight 64
@@ -118,7 +137,7 @@ static NSString * const reuseIdentifier = @"Cell";
     {//第二组
         return CGSizeMake(mainWidth, RecommendScrollViewHeight);
     }
-    CGFloat roomItemWidth = (mainWidth - 3*insetMargin)*0.5;
+    CGFloat roomItemWidth = (mainWidth - 2.5*insetMargin)*0.5;
     //显示每个房间的item的大小
     return CGSizeMake(roomItemWidth, roomItemWidth*0.7);
 }
@@ -127,14 +146,14 @@ static NSString * const reuseIdentifier = @"Cell";
  **/
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return section > 1?10:0;
+    return section > 1?5:0;
 }
 /*
  *设置item最小间距
  **/
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return section > 1?10:0;
+    return section > 1?5:0;
 }
 /*
  *设置内边距
@@ -155,36 +174,53 @@ static NSString * const reuseIdentifier = @"Cell";
  **/
 -(UICollectionReusableView*)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section > 1)
+
+    
+    if (indexPath.section <= 1)
     {
-        if ([kind isEqualToString:UICollectionElementKindSectionHeader])
-        {
-            //此处设置组头中的内容
-            UICollectionReusableView* reusableHeader = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"forIndexPath:indexPath];
-            
-            return reusableHeader;
-        }
+        return [super collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
     }
-    return nil;
+    
+    if (![kind isEqualToString:UICollectionElementKindSectionHeader] )
+    {
+        return [super collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
+    }
+    //此处设置组头中的内容
+    FCReusableHeaderView* reusableHeader = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:channelSectionHeaderID forIndexPath:indexPath];
+    reusableHeader.delegate = self;
+    reusableHeader.channelModel = self.channelList[indexPath.section -2];
+    
+    return reusableHeader;
 }
+#pragma mark  - FCReusableHeaderView代理方法
+-(void)toSeeMoreCurrentGameWithGid:(NSString *)gid
+{//跳转到详情页面
+
+}
+//注册建立collection所需子控件
+-(void)registerCellAndHeader
+{
+    //注册推荐频道对应的item
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FCChannelCell" bundle:nil]  forCellWithReuseIdentifier:channelsCellID];
+    //其他类型的item
+    [self.collectionView registerClass:[FCLiveRoomCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    //注册推荐频道的组头
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FCRecommendHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:channelSectionHeaderID];
+}
+
 -(void)loadData
 {
     __weak typeof(self)weakSelf = self;
-    [FCChannelModel channelModelWithContentOfUrlString:@"http://api.huomao.com/channels/get_rec_games.json?time=1482061680&refer=ios&token=e1bf6e77aaa9fc1f1ae605c11f3e3284" callBackHandler:^(NSArray<FCChannelModel *> *callbackData)
-     {
-         weakSelf.channelList = callbackData;
+    [FCNetWorkDataFactory homeRecomendDataWithCallBackFirst:^(NSArray<FCRecommendCycleBanner *> *cycleDataList)
+     {//轮播图数据
          
+     } CallBackSecond:^(NSArray<FCHotLiveBanners *> *hotDataList)
+     {//热门直播数据
+         
+     } CallBackThird:^(NSArray<FCChannelModel *> *recommendDataList)
+     {//推荐频道数据
+         weakSelf.channelList = recommendDataList;
          [weakSelf.collectionView reloadData];
-     }];
-    
-    [[NetWorkTool sharedTool]requestDataWithType:AFNRequestTypeGet UrlString:@"http://api.huomao.com/channels/getRecmmend.json?time=1482061260&refer=ios&token=aaa0cbdaa13db67cf4395d44a5f75474" Param:nil CompleteBlock:^(id result)
-     {
-         if ([result[@"data"] isKindOfClass:[NSArray class]])
-         {
-             weakSelf.hotRecommendLiveList =    [FCChannelDataModel channelDataWithContentOfArr:result[@"data"]];
-             [weakSelf.collectionView reloadData];
-         }
-         
      }];
 }
 
