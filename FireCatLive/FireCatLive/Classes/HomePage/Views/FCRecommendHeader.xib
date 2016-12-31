@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,7 +42,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
             <constraints>
                 <constraint firstItem="ShL-6o-Mxa" firstAttribute="centerY" secondItem="XJb-rB-fd3" secondAttribute="centerY" id="0JK-0S-A5p"/>
                 <constraint firstItem="ShL-6o-Mxa" firstAttribute="centerY" secondItem="7pC-n1-A5d" secondAttribute="centerY" id="6Dr-A4-1Au"/>
@@ -54,7 +55,9 @@
                 <constraint firstAttribute="trailing" secondItem="ShL-6o-Mxa" secondAttribute="trailing" constant="10" id="p5k-hj-mMd"/>
             </constraints>
             <connections>
+                <outlet property="detailAccessoryView" destination="ShL-6o-Mxa" id="WLK-xP-fbb"/>
                 <outlet property="iconView" destination="NXg-7M-Fzt" id="37w-aZ-v5O"/>
+                <outlet property="moreLiveLable" destination="7pC-n1-A5d" id="2dE-Vp-h90"/>
                 <outlet property="nameLable" destination="aft-c1-Yle" id="Suv-f3-Pyn"/>
             </connections>
             <point key="canvasLocation" x="-313" y="-140"/>

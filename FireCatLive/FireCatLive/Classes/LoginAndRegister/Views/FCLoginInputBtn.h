@@ -11,14 +11,15 @@
 
 @interface FCLoginInputBtn : UIView
 
+
+
 /**
  
  */
-@property(nonatomic,weak)FCRightImgBtn* btn;
-/**
- 
- */
-@property(nonatomic,weak)UITextField* inputTextField;
+@property(copy,nonatomic)NSString* fileText;
 
 -(void)setShouldInputWithBgNorImg:(NSString*)bgNorImgName BgSelImg:(NSString*)bgSelImgName ImgName:(NSString*) imgName AndPlaceHoler:(NSString*)placeHolder;
+
+-(void)becomeFirstResponder;
+-(void)endEditting;
 @end

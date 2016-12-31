@@ -32,15 +32,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setUpUI];
-    
+    [self setUpUI];    
 }
+
+
 -(void)loginBtnAction:(UIButton*)sender
 {
-    [self.userAccoutInput.inputTextField endEditing:YES];
-    [self.passWordInput.inputTextField endEditing:YES];
-    NSString* userAcount = self.userAccoutInput.inputTextField.text;
-    NSString* password = self.passWordInput.inputTextField.text;
+    [self.userAccoutInput endEditting];
+    [self.passWordInput endEditting];
+    NSString* userAcount = self.userAccoutInput.fileText;
+    NSString* password = self.passWordInput.fileText;
     
      NSString* msg = nil;
     
@@ -61,11 +62,25 @@
    
     }
     
-    [self promoteErroInfoWithAlertActionWithErroMessage:msg];
-    
-    if (!msg.length)
+    if (!msg)
     {
-         [self.navigationController popViewControllerAnimated:YES];
+
+        NSDictionary* para = @{@"username":userAcount,@"password":password};
+        
+        NSLog(@"%@",para);
+        [FCNetWorkDataFactory requestToLoginWithUrlString:@"http://localhost/login.php" Para:para.copy FinishedCallBack:^(id responseResult)
+        {
+            if (responseResult != nil)
+            {
+                
+                [[NSUserDefaults standardUserDefaults]setBool:YES forKey:KApploginState];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+    }
+    else
+    {
+         [self promoteErroInfoWithAlertActionWithErroMessage:msg];
     }
 }
 
@@ -78,8 +93,8 @@
 
 -(void)setUpUI
 {
-   self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-   self.navigationItem.rightBarButtonItems = nil;
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.navigationItem.rightBarButtonItems = nil;
     self.title = @"登录";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(registerNewAccount)];
     
@@ -95,11 +110,9 @@
              make.right.offset(-25);
              make.height.offset(54);
          }];
-        [userAccount.inputTextField becomeFirstResponder];
-        
         return userAccount;
     }();
-    
+ 
     self.passWordInput = ^
     {
         FCLoginInputBtn* password = [[FCLoginInputBtn alloc]init];
@@ -137,6 +150,7 @@
         return btn;
     }();
 
+    
 }
 //提示错误信息
 -(void)promoteErroInfoWithAlertActionWithErroMessage:(NSString*)msg
@@ -145,7 +159,7 @@
     
     UIAlertAction* action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action)
     {
-        [self.userAccoutInput.inputTextField becomeFirstResponder];
+        [self.userAccoutInput becomeFirstResponder];
     }];
     
     [alertCtr addAction:action];
@@ -163,14 +177,18 @@
 
      BOOL isInPassword = [self.passWordInput.layer containsPoint:loc];
     
- 
-    
     if (!isInUser && !isInPassword)
     {
-        [self.userAccoutInput.inputTextField endEditing:YES];
-        [self.passWordInput.inputTextField endEditing:YES];
+        [self.userAccoutInput endEditting];
+        [self.passWordInput endEditting];
     }
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.userAccoutInput becomeFirstResponder];
 
+}
 
 @end

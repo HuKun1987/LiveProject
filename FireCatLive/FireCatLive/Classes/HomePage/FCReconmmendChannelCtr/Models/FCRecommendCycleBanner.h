@@ -35,5 +35,7 @@
  */
 @property(copy,nonatomic)NSString* order;
 
+
+
 +(NSArray<FCRecommendCycleBanner*>*)recommendCycleBannerWithContentDataArr:(NSArray*)dataArr;
 @end

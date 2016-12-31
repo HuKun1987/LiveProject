@@ -27,10 +27,6 @@
 {
     [super layoutSubviews];
     self.imageView.originX = 10;
-//    self.layer.cornerRadius = self.width*0.015;
-//    self.layer.masksToBounds = YES;
-//    self.layer.borderWidth = 1;
-//    self.layer.borderColor = self.selected? [UIColor redColor].CGColor:[UIColor lightGrayColor].CGColor;
-//      self.clipsToBounds  = YES;
+
 }
 @end

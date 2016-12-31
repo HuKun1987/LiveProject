@@ -10,6 +10,7 @@
 #import "FCChannelDataModel.h"
 
 @implementation FCChannelModel
+
 +(NSArray<FCChannelModel*>*)channelModelWithContentDataArr:(NSArray*)dataArr
 {
     NSMutableArray* mutebleArr = [NSMutableArray arrayWithCapacity:1];
@@ -23,8 +24,10 @@
              [channel setValuesForKeysWithDictionary:dict];
              [mutebleArr addObject:channel];
          }
+         
+   
      }];
-    return  mutebleArr;
+    return  mutebleArr.copy;
 }
 
 //拦截key将对应的value转变成模型数据；
@@ -46,4 +49,5 @@
 {
 
 }
+
 @end

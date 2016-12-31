@@ -16,6 +16,32 @@
 
 @implementation FCNetWorkDataFactory
 
+
++(void)requesLiveRoomDataWithCid:(NSString*)cid CallBack:(void(^)(NSArray * result))callBackDetailDataList
+{
+//http://api.huomao.com/user/getToken?uid=0&time=1482901560&cid=11505&token=f57f1b3a8159aadd42544cd3c2b89875
+    
+//http://api.huomao.com/channels/getRankListAll?time=1482901560&refer=ios&cid=11505&token=71fcd63158e1809208d2138a61ca0fd4
+    
+//http://api.huomao.com/channels/channelDetail?time=1482901560&refer=ios&cid=11505&token=71fcd63158e1809208d2138a61ca0fd4
+
+    NSString* urlString = [NSString stringWithFormat:@"http://api.huomao.com/channels/channelDetail?time=1482901560&refer=ios&cid=%@&token=71fcd63158e1809208d2138a61ca0fd4",cid];
+    
+    [[NetWorkTool sharedTool]requestDataWithType:AFNRequestTypeGet UrlString:urlString Param:nil CompleteBlock:^(id result)
+    {
+        
+    }];
+    
+    
+
+}
+
+
+
+
+
+
+
 +(void)detailDataWithGid:(NSString*)gid CallBack:(void(^)(NSArray<FCChannelDataModel*>*))callBackDetailDataList
 {
 
@@ -58,7 +84,7 @@
     }];
 }
 /*
- *分类页面数据
+ *分类模块数据
  **/
 +(void)catergaryDataWithCallBack:(void(^)(NSArray<FCRecommendChannelInfo*>*))callBackCatagaryDataList
 {
@@ -77,7 +103,7 @@
 /*
  *推荐频道数据
  **/
-+(void)homeRecomendDataWithCallBackFirst: (void(^)(NSArray<FCRecommendCycleBanner*> * cycleDataList))callBackCycleDataList CallBackSecond: (void(^)(NSArray<FCHotLiveBanners*> * hotDataList))callBackHotDataList CallBackThird: (void(^)(NSArray<FCChannelModel*> * recommendDataList))callBackRecommendDataList
++(void)homeRecomendDataWithCallBackFirst: (void(^)(NSArray<FCRecommendCycleBanner*> * cycleDataList))callBackCycleDataList CallBackSecond: (void(^)(NSArray<FCChannelDataModel*> * hotDataList))callBackHotDataList CallBackThird: (void(^)(NSArray<FCChannelModel*> * recommendDataList))callBackRecommendDataList
 {
     
     //请求推荐频道数据
@@ -112,8 +138,9 @@
          if ([result[@"data"] isKindOfClass:[NSArray class]])
          {
              NSArray* dataArr = (NSArray*)result[@"data"];
-
-             callBackHotDataList([FCHotLiveBanners hotLiveBannersWithContentDataArr:dataArr]);
+            
+             NSArray<FCChannelDataModel*>* dataList = [FCChannelDataModel channelDataWithContentOfArr:dataArr];
+             callBackHotDataList(dataList);
          }
          else
          {
@@ -135,6 +162,17 @@
          }
      }];
 }
+//登录请求
++(void)requestToLoginWithUrlString:(NSString*)urlString Para:(id)parame FinishedCallBack:(void(^)(id responseResult))finishedCallBack
+{
 
-
+    [[NetWorkTool sharedTool]POST:urlString parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    {
+        NSLog(@"%@",responseObject);
+        finishedCallBack(responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%s--%@",__func__,error);
+    }];
+}
 @end

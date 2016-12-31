@@ -23,8 +23,8 @@
     CGFloat roomItemWidth = (mainWidth - 20)*0.5;
     //显示每个房间的item的大小
      self.itemSize =  CGSizeMake(roomItemWidth, roomItemWidth*0.7);
-    self.minimumLineSpacing = 10;
+     self.minimumLineSpacing = 10;
     self.minimumInteritemSpacing = 10;
-
+ 
 }
 @end

@@ -6,10 +6,10 @@
 //  Copyright © 2016年 hukun. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "FCBaseModel.h"
 @class FCChannelModel;
 @class FCChannelDataModel;
-@interface FCChannelModel : NSObject
+@interface FCChannelModel : FCBaseModel
 /**
  
  */
@@ -26,6 +26,11 @@
  
  */
 @property(nonatomic,strong)NSArray<FCChannelDataModel*>* data;
+
+/**
+ 
+ */
+@property(nonatomic,assign)BOOL isAccessoryHidden;
 
 +(NSArray<FCChannelModel*>*)channelModelWithContentDataArr:(NSArray*)dataArr;
 @end

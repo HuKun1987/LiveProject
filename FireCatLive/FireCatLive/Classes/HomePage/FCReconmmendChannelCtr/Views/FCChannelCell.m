@@ -26,7 +26,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        
+      
     }
     return self;
 }
@@ -40,14 +40,37 @@
     self.channelNameLable.text = @"直播lol";
     [self.vistorCountbutton setTitle:@"1.8万" forState:UIControlStateNormal];
     
+    [self.channelNameLable mas_makeConstraints:^(MASConstraintMaker *make)
+    {
+        make.height.offset(25);
+    }];
+    
 }
 -(void)setChannelData:(FCChannelDataModel *)channelData
 {
     NSString* urlString = channelData.image?channelData.image: channelData.img;
+    
     [self.bgImgView sd_setImageWithURL:[NSURL URLWithString:urlString ]placeholderImage:[UIImage imageNamed:@"huomao_default_Heng"]];
+    
     self.userNameLable.text = channelData.username;
     self.channelNameLable.text = channelData.channel;
+    
     [self.vistorCountbutton setTitle:channelData.views forState:UIControlStateNormal];
 
+    BOOL isHotRemmendLive = !channelData.views;
+    self.channelNameLable.hidden = isHotRemmendLive;
+    self.vistorCountbutton.hidden = isHotRemmendLive;
+    
+    if (isHotRemmendLive)
+    {
+        [self.channelNameLable mas_updateConstraints:^(MASConstraintMaker *make)
+        {
+            make.height.offset(0);
+        }];
+        
+        self.bgImgView.contentMode =  UIViewContentModeScaleAspectFill;
+    }
+    
+    
 }
 @end

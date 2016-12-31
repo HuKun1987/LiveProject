@@ -23,7 +23,7 @@ NetWorkTool* _instance;
         
         _instance.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain",@"text/html",nil];
         
-        _instance.requestSerializer = [AFJSONRequestSerializer serializer];
+//        _instance.requestSerializer = [AFJSONRequestSerializer serializer];
     });
     return _instance;
 }

@@ -36,5 +36,6 @@
  */
 @property(copy,nonatomic)NSString* channel;
 
+
 +(NSArray<FCHotLiveBanners*>*)hotLiveBannersWithContentDataArr:(NSArray*)dataArr;
 @end

@@ -8,7 +8,9 @@
 
 #import "FCBaseViewController.h"
 
-#define FCUserAccountKey  @""
+#define FCUserAccountKey  @"UserAccount"
+
+
 
 @interface FCBaseViewController ()
 
@@ -21,7 +23,7 @@
     [super viewDidLoad];
     
      self.view.backgroundColor = [UIColor whiteColor];
-     self.isLogin = YES;
+    [self getLocalSaveUserAccoutAndPassWordAndRequest2Login];
     [self setUPUI];
 }
 
@@ -44,11 +46,31 @@
  **/
 -(void)getLocalSaveUserAccoutAndPassWordAndRequest2Login
 {
+    //用户名存储在偏好设置
     NSString* userAccount =  [[NSUserDefaults standardUserDefaults]stringForKey:FCUserAccountKey];
-    
+    //密码保存到钥匙串
     NSString* password = [SSKeychain passwordForService:[NSBundle mainBundle].bundleIdentifier account:userAccount];
     
     NSString* md5PWd = [password md5String];
+ 
+    if (userAccount != nil && password != nil)
+    {
+        NSDictionary* para = @{@"username":userAccount,@"password":md5PWd};
+        
+        [FCNetWorkDataFactory requestToLoginWithUrlString:@"http://localhost/login.php" Para:para FinishedCallBack:^(id responseResult)
+        {
+            if (responseResult != nil)
+            {
+                [[NSUserDefaults standardUserDefaults]setBool:YES forKey:KApploginState];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            
+        }];
+    }else
+    {
+        self.isLogin = NO;
+    }
+    
 }
 
 -(void)lookAtHistorySeacrh
@@ -61,5 +83,12 @@
 {
     
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//       self.isLogin = [[NSUserDefaults standardUserDefaults]boolForKey:KApploginState];
+
 }
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "FCReconmmendCtr.h"
-#import "FCLiveRoomCell.h"
 #import "FCChannelModel.h"
 #import "FCChannelDataModel.h"
 #import "FCChannelCell.h"
@@ -16,7 +15,8 @@
 #import "FCRecommendChannelInfo.h"
 
 #import "FCNetWorkDataFactory.h"
-
+#import "FCCycleScrollCell.h"
+#import "FCHotLiveRecommendCell.h"
 static NSString * const reuseIdentifier = @"Cell";
 
 static NSString* const cycleScrollCellID = @"cycleScrollCellID";
@@ -39,50 +39,43 @@ static NSString* const channelSectionHeaderID = @"channelSectionHeaderID";
  *存放推荐频道标签模型的数组
  **/
 @property(nonatomic,strong)NSArray<FCRecommendChannelInfo*>* channelInfoList;
-@end
+/**
+ 
+ */
+@property(nonatomic,strong)NSArray<FCRecommendCycleBanner *> *cycleDataList;
 
+/**
+ 
+ */
+@property(nonatomic,strong)NSArray<FCChannelDataModel*> *hotRecommendBanner;
+
+
+@end
+#define documentPath  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject]
 @implementation FCReconmmendCtr
 
 
-/*
- *存放推荐频道的数组
- **/
--(NSArray <FCChannelModel*>*)channelList
-{
-    if (!_channelList) {
-        _channelList = [NSArray array];
-    }
-    return _channelList;
-}
-/*
- *存放热门直播的数组
- **/
--(NSArray<FCChannelDataModel *> *)hotRecommendLiveList
-{
-    if (!_hotRecommendLiveList) {
-        _hotRecommendLiveList = [NSArray array];
-    }
-    return _hotRecommendLiveList;
-}
-- (instancetype)init
-{
-    UICollectionViewFlowLayout* recommendLayOut = [[ UICollectionViewFlowLayout alloc]init];
-     recommendLayOut.scrollDirection =UICollectionViewScrollDirectionVertical;
-    if (self = [super initWithCollectionViewLayout:recommendLayOut])
-    {
+-(void)loadView{
+    [super loadView];
     
-    }
-    return self;
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^
+    {
+        [self loadData];
+    }];
+
+
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
     [self loadData];
     [self registerCellAndHeader];
 }
 
 #pragma mark <UICollectionViewDataSource>
+#define itemCountInSection 4
 //返回组数 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -91,7 +84,7 @@ static NSString* const channelSectionHeaderID = @"channelSectionHeaderID";
 //返回行数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return section > 1 ? 4:1;
+    return section > 1 ? itemCountInSection:1;
 }
 //返回cell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -102,27 +95,35 @@ static NSString* const channelSectionHeaderID = @"channelSectionHeaderID";
     if (indexPath.section > 1)
     {
         ID = channelsCellID;
-    }else
+    }else if (indexPath.section == 0)
     {
-        ID = reuseIdentifier;
+        ID = cycleScrollCellID;
+    }
+    else
+    {
+        ID = hotRecommendCellID;
     }
  
     FCBaseCollectionCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     
-    if (indexPath.section > 1)
+    if (indexPath.section == 0)
     {
-        cell.channelData = self.channelList[indexPath.section - 2].data[indexPath.item];
-    }else
-    {
-       
-        
-        cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0f green:arc4random_uniform(255)/255.0f blue:arc4random_uniform(255)/255.0f alpha:1];
+        cell.cycleDataList = self.cycleDataList;
     }
+    else if (indexPath.section == 1)
+    {
+        cell.hotBannerList = self.hotRecommendBanner;
+    }
+    else
+    {
+         cell.channelData = self.channelList[indexPath.section - 2].data[indexPath.item];
+    }
+    
     return cell;
 
 }
 #pragma mark -- UICollectionViewDelegateFlowLayout
-#define CycleScrollViewHeight 120
+#define CycleScrollViewHeight 200
 #define RecommendScrollViewHeight 64
 #define insetMargin 10
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -137,7 +138,7 @@ static NSString* const channelSectionHeaderID = @"channelSectionHeaderID";
     {//第二组
         return CGSizeMake(mainWidth, RecommendScrollViewHeight);
     }
-    CGFloat roomItemWidth = (mainWidth - 2.5*insetMargin)*0.5;
+    CGFloat roomItemWidth = (mainWidth - 2*insetMargin)*0.5;
     //显示每个房间的item的大小
     return CGSizeMake(roomItemWidth, roomItemWidth*0.7);
 }
@@ -154,20 +155,21 @@ static NSString* const channelSectionHeaderID = @"channelSectionHeaderID";
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return section > 1?5:0;
+    return 0;
 }
 /*
  *设置内边距
  **/
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return section > 1?UIEdgeInsetsMake(10, 10, 10, 10):UIEdgeInsetsZero;
+    return section > 1?UIEdgeInsetsMake(0, 5, 0, 5):UIEdgeInsetsZero;
 }
 /*
  *设置组头尺寸
  **/
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return section >1?CGSizeMake([UIScreen mainScreen].bounds.size.width, 44) : CGSizeZero;
+    return section >0?CGSizeMake([UIScreen mainScreen].bounds.size.width, 44) : CGSizeZero;
 }
 /*
  *设置组头
@@ -176,7 +178,7 @@ static NSString* const channelSectionHeaderID = @"channelSectionHeaderID";
 {
 
     
-    if (indexPath.section <= 1)
+    if (indexPath.section < 1)
     {
         return [super collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
     }
@@ -187,9 +189,20 @@ static NSString* const channelSectionHeaderID = @"channelSectionHeaderID";
     }
     //此处设置组头中的内容
     FCReusableHeaderView* reusableHeader = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:channelSectionHeaderID forIndexPath:indexPath];
-    reusableHeader.delegate = self;
-    reusableHeader.channelModel = self.channelList[indexPath.section -2];
     
+    reusableHeader.delegate = self;
+    if (indexPath.section == 1)
+    {
+        FCChannelModel* model = [[FCChannelModel alloc]init];
+        model.isAccessoryHidden = YES;
+        model.cname = @"热门直播";
+        model.icon = nil;
+        reusableHeader.channelModel = model;
+        
+    }else
+    {
+      reusableHeader.channelModel = self.channelList[indexPath.section -2];
+    }
     return reusableHeader;
 }
 #pragma mark  - FCReusableHeaderView代理方法
@@ -202,8 +215,10 @@ static NSString* const channelSectionHeaderID = @"channelSectionHeaderID";
 {
     //注册推荐频道对应的item
     [self.collectionView registerNib:[UINib nibWithNibName:@"FCChannelCell" bundle:nil]  forCellWithReuseIdentifier:channelsCellID];
-    //其他类型的item
-    [self.collectionView registerClass:[FCLiveRoomCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    
+    [self.collectionView registerClass:[FCHotLiveRecommendCell class] forCellWithReuseIdentifier:hotRecommendCellID];
+    
+    [self.collectionView registerClass:[FCCycleScrollCell class] forCellWithReuseIdentifier:cycleScrollCellID];
     //注册推荐频道的组头
     [self.collectionView registerNib:[UINib nibWithNibName:@"FCRecommendHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:channelSectionHeaderID];
 }
@@ -211,17 +226,40 @@ static NSString* const channelSectionHeaderID = @"channelSectionHeaderID";
 -(void)loadData
 {
     __weak typeof(self)weakSelf = self;
+    
     [FCNetWorkDataFactory homeRecomendDataWithCallBackFirst:^(NSArray<FCRecommendCycleBanner *> *cycleDataList)
      {//轮播图数据
-         
-     } CallBackSecond:^(NSArray<FCHotLiveBanners *> *hotDataList)
+         weakSelf.cycleDataList = cycleDataList;
+     
+     }
+     CallBackSecond:^(NSArray<FCChannelDataModel *> *hotDataList)
      {//热门直播数据
-         
-     } CallBackThird:^(NSArray<FCChannelModel *> *recommendDataList)
+         weakSelf.hotRecommendBanner= hotDataList;
+
+     }
+    CallBackThird:^(NSArray<FCChannelModel *> *recommendDataList)
      {//推荐频道数据
          weakSelf.channelList = recommendDataList;
+         [weakSelf.collectionView.mj_header endRefreshing];
          [weakSelf.collectionView reloadData];
      }];
 }
-
+#pragma mark --初始化方法
+- (instancetype)init
+{
+    UICollectionViewFlowLayout* recommendLayOut = [[ UICollectionViewFlowLayout alloc]init];
+    
+    recommendLayOut.scrollDirection =UICollectionViewScrollDirectionVertical;
+    
+    if (self = [super initWithCollectionViewLayout:recommendLayOut])
+    {
+        self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        
+        self.channelList = [NSArray array];
+        self.cycleDataList= [NSArray array];
+        self.hotRecommendLiveList = [NSArray array];;
+        self.channelInfoList = [NSArray array];
+    }
+    return self;
+}
 @end

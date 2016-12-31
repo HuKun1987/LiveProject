@@ -6,9 +6,9 @@
 //  Copyright © 2016年 hukun. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "FCDetailChannelCtr.h"
 @class FCRecommendChannelInfo;
-@interface FCReconmmendCtr : UICollectionViewController
+@interface FCReconmmendCtr : FCDetailChannelCtr
 
 /**
  

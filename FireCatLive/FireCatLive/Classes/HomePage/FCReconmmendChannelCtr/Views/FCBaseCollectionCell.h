@@ -14,4 +14,11 @@
  */
 @property(nonatomic,strong)FCChannelDataModel* channelData;
 
+
+/**
+ 
+ */
+@property(nonatomic,strong)NSArray<FCChannelDataModel *> * hotBannerList;
+
+@property(nonatomic,strong)NSArray<FCRecommendCycleBanner *> *cycleDataList;
 @end

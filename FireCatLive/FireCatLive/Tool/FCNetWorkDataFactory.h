@@ -27,7 +27,7 @@
 /*
  *请求主页推荐频道对应的数据信息；
  **/
-+(void)homeRecomendDataWithCallBackFirst: (void(^)(NSArray<FCRecommendCycleBanner*> * cycleDataList))callBackCycleDataList CallBackSecond: (void(^)(NSArray<FCHotLiveBanners*> * hotDataList))callBackHotDataList CallBackThird: (void(^)(NSArray<FCChannelModel*> * recommendDataList))callBackRecommendDataList;
++(void)homeRecomendDataWithCallBackFirst: (void(^)(NSArray<FCRecommendCycleBanner*> * cycleDataList))callBackCycleDataList CallBackSecond: (void(^)(NSArray<FCChannelDataModel*> * hotDataList))callBackHotDataList CallBackThird: (void(^)(NSArray<FCChannelModel*> * recommendDataList))callBackRecommendDataList;
 /*
  *第一次默认加载推荐的频道标签
  **/
@@ -41,4 +41,9 @@
  *通过gid请求详情的数据信息
  **/
 +(void)detailDataWithGid:(NSString*)gid CallBack:(void(^)(NSArray<FCChannelDataModel*>*))callBackDetailDataList;
+/*
+ *请求登录
+ **/
+
++(void)requestToLoginWithUrlString:(NSString*)urlString Para:(id)parame FinishedCallBack:(void(^)(id responseResult))finishedCallBack;
 @end

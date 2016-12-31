@@ -174,6 +174,8 @@ static NSString* secondSectionCellID = @"secondSectionCellID";
             __weak typeof(self)weakSelf = self;
             header.tapUserInfoHandler = ^
             {
+                
+               
                 //没有登录时提示去登录
                 if (!self.isLogin)
                 {

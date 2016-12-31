@@ -6,9 +6,9 @@
 //  Copyright © 2016年 hukun. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "FCBaseModel.h"
 @class FCChannelDataModel;
-@interface FCChannelDataModel : NSObject
+@interface FCChannelDataModel : FCBaseModel
 /**
  
  */

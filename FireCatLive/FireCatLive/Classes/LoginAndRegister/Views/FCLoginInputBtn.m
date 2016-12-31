@@ -10,7 +10,14 @@
 #import "FCRightImgBtn.h"
 @interface FCLoginInputBtn ()<UITextFieldDelegate>
 
-
+/**
+ 
+ */
+@property(nonatomic,weak)FCRightImgBtn* btn;
+/**
+ 
+ */
+@property(nonatomic,weak)UITextField* inputTextField;
 @end
 
 @implementation FCLoginInputBtn
@@ -32,7 +39,7 @@
             }];
             return btn;
         }();
-        
+//
         self.inputTextField = ^
         {
             UITextField * textfield = [[UITextField alloc]init];
@@ -68,7 +75,7 @@
     [self.btn setBackgroundImage:selImg forState:UIControlStateSelected];
     
     [self.btn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
-//    NSLog(@"%@",[NSString stringWithFormat:@"%@ (2)",imgName]);
+
     [self.btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@ (2)",imgName]] forState:UIControlStateSelected];
     
     self.inputTextField.placeholder = placeHolder;
@@ -76,12 +83,12 @@
 }
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    self.btn.selected = textField.isFirstResponder;
+    self.btn.selected = YES;
     
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    self.btn.selected = textField.isFirstResponder;
+    self.btn.selected = NO;
 }
 
 -(void)btnClick:(FCRightImgBtn*)sender
@@ -96,5 +103,21 @@
     {
         [self.inputTextField endEditing:YES];
     }
+}
+
+-(void)becomeFirstResponder
+{
+
+    [self.inputTextField becomeFirstResponder];
+    
+}
+
+-(void)endEditting
+{
+    [self.inputTextField endEditing:YES];
+}
+
+-(NSString *)fileText{
+    return  self.inputTextField.text;
 }
 @end

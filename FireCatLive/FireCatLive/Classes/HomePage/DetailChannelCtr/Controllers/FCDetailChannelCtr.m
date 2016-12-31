@@ -9,6 +9,7 @@
 #import "FCDetailChannelCtr.h"
 #import "FCDetailChannelFlowLayOut.h"
 #import "FCChannelCell.h"
+
 @interface FCDetailChannelCtr ()
 /**
  
@@ -28,21 +29,44 @@ static NSString * const reuseIdentifier = @"Cell";
     if (self = [super initWithCollectionViewLayout:layOut])
     {
         self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        
         self.channelDetailList = [NSArray array];
     }
     return self;
 }
 
 
+-(void)loadView
+{
+    [super loadView];
+    // 下拉刷新
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^
+    {
+        if (self.gid != nil)
+        {
+            // 进入刷新状态后会自动调用这个block
+            [self loadDataWithGid:self.gid];
+        }else
+        {
+        
+        
+        }
+    }];
+    [self.collectionView.mj_header beginRefreshing];
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.collectionView registerNib:[UINib nibWithNibName:@"FCChannelCell" bundle:nil]  forCellWithReuseIdentifier:channelsCellID];
+    
 }
 
 #pragma mark <UICollectionViewDataSource>
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
 
     return self.channelDetailList.count;
 }
@@ -59,14 +83,23 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)setGid:(NSString *)gid
 {
     _gid = gid;
+
+    [self loadDataWithGid:gid];
+}
+
+-(void)loadDataWithGid:(NSString*)gid{
+
     __weak typeof(self)weakSelf = self;
     
     [FCNetWorkDataFactory detailDataWithGid:gid CallBack:^(NSArray<FCChannelDataModel *> * channelDetailList)
-    {
-        weakSelf.channelDetailList = channelDetailList;
-        
-        
-        [weakSelf.collectionView reloadData];
-    }];
+     {
+         weakSelf.channelDetailList = channelDetailList;
+         [weakSelf.collectionView.mj_header endRefreshing];
+         [weakSelf.collectionView reloadData];
+     }];
+
 }
+
+
+
 @end

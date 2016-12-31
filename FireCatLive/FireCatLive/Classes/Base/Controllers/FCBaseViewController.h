@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+#define KApploginState  @"KApploginState"
 @interface FCBaseViewController : UIViewController
 /**
  
  */
 @property(nonatomic,assign)BOOL isLogin;
+
+
+
 @end

@@ -14,7 +14,7 @@
 
 #import "FCNetWorkDataFactory.h"
 
-#import "UIImageView+WebCache.h"
+#import <UIImageView+WebCache.h>
 
 #import "SSKeychain.h"
 //#define sizeScale ([UIScreen mainScreen].scale - 2)>0 ? 3/2: 1
